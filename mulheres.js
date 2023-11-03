@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const app = express()
+app.use(express.json())
 const porta = 3333
 
 const mulheres = [
@@ -30,7 +31,7 @@ const mulheres = [
     }
 ]
 
-function mostraMulheres(response, request) {
+function mostraMulheres(request, response) {
     response.json (mulheres)
 }
 
@@ -38,6 +39,5 @@ function mostraPorta() {
     console.log('Servidor criado e rodando na porta', porta)
 }
 
-app.use(express.json())
 app.use(router.get ('/mulheres', mostraMulheres))
 app.listen(porta, mostraPorta)
