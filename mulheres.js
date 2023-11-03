@@ -38,6 +38,6 @@ function mostraPorta() {
     console.log('Servidor criado e rodando na porta', porta)
 }
 
-
+app.use(express.json())
 app.use(router.get ('/mulheres', mostraMulheres))
 app.listen(porta, mostraPorta)
